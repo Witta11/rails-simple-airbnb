@@ -1,13 +1,23 @@
+<nav class="navbar navbar-light bg-dark">
+  <span class="navbar-brand mb-0 h1">Navbar</span>
+  <%= link_to 'Add Flat', new_flat_path %>
+</nav>
 <h1>All our Flats (4)</h1>
 <div class="container mt-5">
   <% @flats.each do |flat| %>
-    <div class="card" style="width: 20rem;">
+    <div class="card">
       <div class="card-body">
       <h2 class="card-title"><%= flat.name %></h2>
       <p><%= flat.address %></p>
       <div class="icons">
-        <i class="fas fa-users"></i><p><%= flat.number_of_guests %></p>
-        <i class="fas fa-euro-sign"></i> <p><%= flat.price_per_night %></p>
+        <div class="flex">
+        <i class="fas fa-users"></i>
+        <span><%= flat.number_of_guests %></span>
+        </div>
+        <div class="flex">
+        <i class="fas fa-euro-sign"></i>
+        <span><%= flat.price_per_night %></span>
+        </div>
       </div>
       <hr>
       <%= link_to 'More info', flat_path(flat) %>
